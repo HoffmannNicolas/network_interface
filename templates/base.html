@@ -1,0 +1,84 @@
+
+<!-- Define a base template to be extended by other templates -->
+<!-- Path: templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        {% block title %} {% endblock title %}
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        nav {
+            background-color: rgba(240, 240, 240, 1);
+            width: 100%;
+            height: 100px;
+        }
+        nav ul li {
+            list-style: none;
+            line-height: 100px;
+            width: 25%;
+            text-align: center;
+
+            float: left;
+            display: inline;
+            
+        }
+        nav ul li a {
+            display: block;
+            text-decoration: none;
+            color: rgba(0, 0, 180, 1);
+            font-size: 20px;
+            padding: 0 20px;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            color: rgba(0, 0, 0, 1);
+            background-color: rgba(220, 220, 220, 1);
+            font-weight: bold;
+        }
+
+        div {
+            background-color: rgba(230, 230, 230, 1);
+            display: table;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        div h1 {
+            text-align: center;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        p {
+            color: rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/demonstration">Web Demonstration</a></li>
+            <li><a href="/api">API Documentation</a></li>
+            <li><a href="/help">Help</a></li>
+        </ul>
+    </nav>
+
+    <img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" alt="Python logo" width="200px">
+
+	{% block content %}
+	{% endblock content %}
+</body>
+</html>
+

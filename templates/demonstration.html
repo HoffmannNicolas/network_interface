@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+	Demonstration
+{% endblock title %}
+
+
+{% block content %}
+    <div>
+        <p>Select an input image (.png, .jpg or jpeg)</p>
+        <form method="post" action="/demonstration" enctype="multipart/form-data">
+            <dl>
+                <p>
+                    <input type="file" name="file" class="form-control" autocomplete="off" required>
+                </p>
+            </dl>
+            <p>
+                <input type="submit" value="Submit" class="btn btn-info">
+            </p>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <br>
+    <div>
+        {% if output_image_path %}
+            <h1>Output Image</h1>
+            <img src="{{ url_for('display_image', filename=output_image_path) }}">
+        {% endif %}
+        <br>
+        {% if input_image_path %}
+            <h1>Input Image</h1>
+            <img src="{{ url_for('display_image', filename=input_image_path) }}">
+        {% endif %}
+    </div>
+
+{% endblock content %}
+
+
