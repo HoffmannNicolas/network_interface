@@ -1,4 +1,4 @@
 
 env/*
 
-static/uploads/*
+app/static/uploads/*
